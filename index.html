@@ -3,9 +3,22 @@
     <title>Home</title>
 </head>
 <body>
+    <div id="fail"></div>
     <form action="http://localhost:3000/" method="post" enctype="multipart/form-data">
         <input type="file" id="myFile" name="filename" accept="image/*">
         <input type="submit">
     </form>
+    <script>
+        fetch('http://localhost:3000/')
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById('fail').innerHTML = 'Success'
+                }
+            })
+            .catch(error => {
+                document.getElementById('fail').innerHTML = 'Fail'
+            })
+    </script>
 </body>
 </html>

@@ -17,6 +17,10 @@ fastify.post('/', async function handler (request, reply) {
     reply.send({ uploaded: true, message: `File ${data.filename} uploaded, thanks!` })
 })
 
+fastify.get('/', async function handler (request, reply) {
+    reply.send({ message: 'Hello World' })
+})
+
 // Run the server!
 fastify.listen({ host: '0.0.0.0',port: 3000 }, (err) => {
   if (err) {
